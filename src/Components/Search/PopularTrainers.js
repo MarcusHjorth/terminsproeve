@@ -36,9 +36,9 @@ const PopularTrainers = () => {
                {/* Carousel ----- */}
                <ul ref={carousel} className="flex flex-col">
 
-                {items && Object.values(items).map(({trainerName, asset}, i ) => {
-                    const id = Object.keys(items)[i]
-                    return <Link key={ i } to={``} >
+                {items && Object.values(items).map(({trainerName, asset, id}, i ) => {
+                    /* const id = Object.keys(items)[i] */
+                    return <Link key={ i } to={`/Classes/${id}`}>
 
                         {/* List object ------- */}
                         <li className="mr-[20px] pointer-events-none ">

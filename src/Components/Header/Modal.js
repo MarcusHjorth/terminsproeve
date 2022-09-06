@@ -8,8 +8,8 @@ const Modal = ({ setModalOn }) => {
     }
 
     return ( 
-        <nav className="bg-White absolute top-[-60px] z-50 w-screen h-screen pt-[70px]">
-            <button className="w-full h-[60px] flex justify-end">
+        <nav className="bg-White absolute top-[0px] z-50 w-screen h-screen pt-[0px]">
+            <button className="w-full h-[100px] flex justify-end items-center">
                 <CgClose onClick={CloseModal} className="text-36 text-DarkGray mr-[20px]" />
             </button>
                 

@@ -26,7 +26,7 @@ const ClassesForYou = () => {
         console.log(carousel.current, "hello");
         /* setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth) */
       }, [])
-      /* console.log(items); */
+      console.log(items); 
 
 
     return ( 
@@ -39,10 +39,9 @@ const ClassesForYou = () => {
             drag="x"
             dragConstraints={{right: 0, left: 300 }}
             >
-                {items && Object.values(items).map(({className, asset}, i ) => {
-                    const id = Object.keys(items)[i]
-                    return <Link key={ i } to={``} >
-
+                {items && Object.values(items).map(({className, asset, id, trainer}, i ) => {
+                    /* const id = Object.keys(items)[i] */
+                    return <Link key={ i } to={`/Classes/${id}`} trainer={trainer.id}>
                         {/* List object ------- */}
                         <li className="mr-[20px] pointer-events-none ">
                             <figure className="bg-OffWhite h-[10rem] w-[10rem] rounded-[1.2em] rounded-br-none relative overflow-hidden">
