@@ -5,7 +5,7 @@ const SingleTrainer = (props) => {
     const URL = "http://localhost:4000/api/v1/trainers/"
 
     const [ item, setItem ] = useState()
-    const [ setTrainer ] = useState()
+
 
     useEffect(() => {
         axios({
@@ -13,9 +13,8 @@ const SingleTrainer = (props) => {
             method: "GET",
         }).then(request => { 
             setItem(request.data)
-            setTrainer(props)
         })
-    }, [ ])
+    }, [ props ])
     
     return ( 
         item ?

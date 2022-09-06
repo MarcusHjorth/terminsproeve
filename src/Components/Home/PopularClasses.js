@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const PopularClasses= () => {
     const URL = "http://localhost:4000/api/v1/classes/"
     const [ item, setItem ] = useState()
-    const [ setIndex ] = useState(0)
+    const [ index, setIndex ] = useState(0)
     
     let randomItem = Math.floor(Math.random() * 4 + 1)
 
@@ -20,7 +20,9 @@ const PopularClasses= () => {
             setItem(request.data)
             setIndex(randomItem)
         })
-    }, [ ])
+    }, [ randomItem  ])
+    
+    console.log(index);
 
     return ( 
         item ?

@@ -11,7 +11,7 @@ const RatingModal = ({ setModalOn, workout}) => {
         >
             
             <div className="bg-White w-full h-[15rem] py-[20px] mx-[30px] rounded-[20px] flex justify-around items-center flex-col">
-                <h1 className="font-bold text-18">Rate the { workout } class</h1>
+                <h1 className="font-bold text-18 px-[20px]">Rate the { workout } class</h1>
                 
                 <ul className="flex flex-row items-center text-Yellow space-x-2 text-20">
                     <li><AiFillStar/></li>

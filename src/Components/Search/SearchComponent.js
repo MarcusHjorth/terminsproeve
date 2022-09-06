@@ -9,7 +9,7 @@ const SearchComponent = () => {
     const URL = "http://localhost:4000/api/v1/trainers"
 
 
-    const [ setItems ] = useState()
+    const [ items, setItems ] = useState()
     const [ setSearchTerm ] = useState()
       useEffect(() => {
           axios({
@@ -18,7 +18,7 @@ const SearchComponent = () => {
           }).then(request => { 
               setItems(request.data)
             })
-        }, [ ])
+        },[])
         
         /* 
         console.log(item)
@@ -43,6 +43,7 @@ const SearchComponent = () => {
                     <input type="text" placeholder="Search classes" className="outline-none bg-OffWhite"
                         onChange={(event) => {
                             setSearchTerm(event.target.value)
+                            console.log(items);
                         }}
                     />
                     {/* {items.map((val, key) => {

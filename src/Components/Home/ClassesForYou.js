@@ -26,7 +26,6 @@ const ClassesForYou = () => {
         console.log(carousel.current, "hello");
         /* setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth) */
       }, [])
-      console.log(items); 
 
 
     return ( 
