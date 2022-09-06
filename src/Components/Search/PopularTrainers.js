@@ -19,7 +19,7 @@ const PopularTrainers = () => {
         
         console.log(items)
 
-        const [ width, setWidth ] = useState(0)
+        /* const [ width, setWidth ] = useState(0) */
         const carousel = useRef()
   
         useEffect(() =>{

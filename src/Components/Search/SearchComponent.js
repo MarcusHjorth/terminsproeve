@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { BsSearch } from 'react-icons/bs';
 import ClassesForYou from '../Home/ClassesForYou';
@@ -9,8 +9,8 @@ const SearchComponent = () => {
     const URL = "http://localhost:4000/api/v1/trainers"
 
 
-    const [ items, setItems ] = useState()
-    const [ searchTerm, setSearchTerm ] = useState()
+    const [ setItems ] = useState()
+    const [ setSearchTerm ] = useState()
       useEffect(() => {
           axios({
               url: URL,

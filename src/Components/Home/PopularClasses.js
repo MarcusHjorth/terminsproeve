@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { AiFillStar } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const PopularClasses= () => {
     const URL = "http://localhost:4000/api/v1/classes/"
     const [ item, setItem ] = useState()
-    const [ index, setIndex ] = useState(0)
+    const [ setIndex ] = useState(0)
     
     let randomItem = Math.floor(Math.random() * 4 + 1)
 

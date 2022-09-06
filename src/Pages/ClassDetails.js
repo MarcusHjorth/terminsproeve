@@ -25,7 +25,7 @@ const ClassDetails = () => {
         }).then(request => { 
             setItem(request.data)
         })
-    }, [ ])
+    }, [ id ])
 
     const clicked = () => {
         setModalOn(true)
