@@ -1,7 +1,10 @@
+import BackButton from "../Components/Header/BackButton";
+import Header from "../Templates/Header";
+
 const MySchedulePage = () => {
     return ( 
         <main>
-            My Schedule
+            <Header text={"My Schedule"} backButton={<BackButton />} />
         </main>
      );
 }

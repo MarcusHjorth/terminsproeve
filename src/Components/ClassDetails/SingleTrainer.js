@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
-import { Link, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 
 const SingleTrainer = (props) => {
     const URL = "http://localhost:4000/api/v1/trainers/"

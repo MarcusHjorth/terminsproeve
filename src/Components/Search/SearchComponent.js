@@ -4,27 +4,27 @@ import { BsSearch } from 'react-icons/bs';
 import ClassesForYou from '../Home/ClassesForYou';
 import PopularTrainers from './PopularTrainers';
 
+
 const SearchComponent = () => {
-    const URL = "http://localhost:4000/api/v1/classes"
+    const URL = "http://localhost:4000/api/v1/trainers"
 
 
-    const [ item, setItem ] = useState()
-  
+    const [ items, setItems ] = useState()
+    const [ searchTerm, setSearchTerm ] = useState()
       useEffect(() => {
           axios({
               url: URL,
               method: "GET",
           }).then(request => { 
-              setItem(request.data)
+              setItems(request.data)
             })
         }, [ ])
         
         /* 
         console.log(item)
  */
-        /*  const search = (value) => array.filter(obj => Object.values(obj).some(val => (new RegExp(value, "i")).test(val)))
+    /*     const search = (value) => array.filter(obj => Object.values(obj).some(val => (new RegExp(value, "i")).test(val)))
         
-        const search = (value) => item.filter(obj) => Object.values(obj).some(val => (new RegExp(value, "i")).test(val)))
     
         document.querySelector("#form").addEventListener("submit", (e) => {
         e.preventDefault();
@@ -35,17 +35,21 @@ const SearchComponent = () => {
         listEl.textContent = searchResults?.length ? searchResults.map(el => el.name) : "No results";
     }) */
 
-
-
-
     return ( 
         <section className="mx-[20px mt-[20px]">
             <div className="px-[20px]">
                 <div className="px-[20px] rounded-full bg-OffWhite border-LightGray border-2 focus:ring-0 p-[10px] pl-[15px] flex flex-row items-center">
                     <BsSearch className="text-DarkGray mr-[10px]"/>
-                    <input type="text" placeholder="Search classes"
-                    className="outline-none bg-OffWhite"
+                    <input type="text" placeholder="Search classes" className="outline-none bg-OffWhite"
+                        onChange={(event) => {
+                            setSearchTerm(event.target.value)
+                        }}
                     />
+                    {/* {items.map((val, key) => {
+                        return (
+                            <p>dasd</p>
+                        )
+                    })} */}
                 </div>
             </div>
 
@@ -58,10 +62,13 @@ const SearchComponent = () => {
                 <p id="results"></p> */}
 
             <ClassesForYou />
+
             <PopularTrainers />
 
         </section>
      );
-}
- 
-export default SearchComponent;
+    }
+    
+    export default SearchComponent;
+    
+                

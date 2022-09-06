@@ -1,37 +1,41 @@
 import React, { useState, useEffect } from 'react';
-import axios from "axios";
+import { useParams } from "react-router-dom"
 import { AiFillStar } from 'react-icons/ai';
-import { Link, useParams } from "react-router-dom"
-import { motion } from "framer-motion"
+import axios from "axios";
+
 import ReHeaderComponent from '../Components/ClassDetails/ReHeaderComponent';
 import ReBackButton from '../Components/ClassDetails/ReBackButton';
 import SingleTrainer from '../Components/ClassDetails/SingleTrainer';
+import SignUpWorkout from '../Components/ClassDetails/SignUpWorkout';
+import RatingModal from '../Components/ClassDetails/RatingModal';
 
 
 
-const ClassDetails = () => {
-
-    
+const ClassDetails = () => {    
     const URL = "http://localhost:4000/api/v1/classes/"
     const [ item, setItem ] = useState()
-    
     const { id } = useParams()
 
-      useEffect(() => {
-          axios({
-              url: URL + id,
-              method: "GET",
-          }).then(request => { 
-              setItem(request.data)
-          })
-      }, [ ])
-    
+    const [ modalOn, setModalOn ] = useState(false)
+
+    useEffect(() => {
+        axios({
+            url: URL + id,
+            method: "GET",
+        }).then(request => { 
+            setItem(request.data)
+        })
+    }, [ ])
+
+    const clicked = () => {
+        setModalOn(true)
+    }
     
     return ( 
         item ?
         <main>
             <div className="h-screen">
-                <figure className="relative h-[60%]">
+                <figure className="relative h-[55%]">
                     <div className="absolute top-0 w-full">
                         <ReHeaderComponent reBackButton={<ReBackButton />} />
                     </div>
@@ -49,7 +53,9 @@ const ClassDetails = () => {
                             <li><AiFillStar/></li>
                             <li className="ml-[0px]">3/5</li>
                         </ul>
-                        <button className="border-4 border-Yellow text-Yellow rounded-full p-[10px] px-[40px]">Rate</button>
+                        <button className="border-4 border-Yellow text-Yellow rounded-full p-[10px] px-[40px]"
+                            onClick={clicked}
+                        >Rate</button>
                     </div>
                 </figure>
 
@@ -60,10 +66,11 @@ const ClassDetails = () => {
                     </article>
 
                     <SingleTrainer trainer={item.trainer.id} />
+                    <SignUpWorkout />
                 </section>
 
             </div>
-
+            {modalOn && <RatingModal setModalOn={setModalOn} workout={item.className} />}
         </main> : <p>Loading</p>
      );
 }
