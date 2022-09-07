@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { AiFillStar } from 'react-icons/ai';
 import { Link } from "react-router-dom"
-import { motion } from "framer-motion"
 
 
 const ClassesForYou = () => {
 
     const URL = "http://localhost:4000/api/v1/classes"
     const [ items, setItems ] = useState()
+    
   
       useEffect(() => {
           axios({
@@ -19,24 +19,14 @@ const ClassesForYou = () => {
           })
       }, [ ])
 
-    /*   const [ width, setWidth ] = useState(0) */
-      const carousel = useRef()
-
-      useEffect(() =>{
-        console.log(carousel.current, "hello");
-        /* setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth) */
-      }, [])
-
-
     return ( 
         items ?
         <section className="mt-[20px] mx-[20px] overflow-hidden">
             <h1 className="my-[20px] text-20 font-bold">Classes for you</h1>
 
             {/* Carousel ----- */}
-            <motion.ul ref={carousel} className="flex flex-row "
-            drag="x"
-            dragConstraints={{right: 0, left: 300 }}
+            <ul className="flex flex-row overflow-x-auto"
+         
             >
                 {items && Object.values(items).map(({className, asset, id, trainer}, i ) => {
                     /* const id = Object.keys(items)[i] */
@@ -57,7 +47,7 @@ const ClassesForYou = () => {
                         </li>
                     </Link>
                 })}
-            </motion.ul>
+            </ul>
         </section> : <p>Loading</p>
      );
 }

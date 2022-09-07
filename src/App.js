@@ -5,6 +5,7 @@ import HomePage from "./Pages/HomePage";
 import SearchPage from './Pages/SearchPage';
 import MySchedulePage from './Pages/MySchedulePage';
 import ClassDetails from './Pages/ClassDetails';
+import LogInPage from './Pages/LogInPage';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/Search" element={<SearchPage />} />
           <Route path="/MySchedule" element={<MySchedulePage />} />
           <Route path="/Classes/:id" element={<ClassDetails /> } />
+          <Route path="/Login" element={<LogInPage /> } />
         </Routes>
       </div>
     </Router>
