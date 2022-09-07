@@ -18,6 +18,7 @@ const MyScheduleComponent = () => {
       console.log(items);
 
     return ( 
+        items ? 
         <section className="w-full h-[10rem] px-[20px] border-1 border-DarkGray ">
             <div className="h-[10rem] p-[10px] border-2 rounded-[15px] border-DarkGray flex flex-col justify-around  ">
                 <h1 className="text-24 font-bold">{items.className}</h1>
@@ -26,7 +27,7 @@ const MyScheduleComponent = () => {
                     <p>- {items.classTime}</p>
                 </div>
             </div>
-        </section>
+        </section> : <p>loading..</p>
      );
 }
  
