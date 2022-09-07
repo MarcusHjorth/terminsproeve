@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { BsSearch } from 'react-icons/bs';
 import { Link } from "react-router-dom"
-import { AiFillStar } from 'react-icons/ai';
+/* import { AiFillStar } from 'react-icons/ai'; */
 
 import ClassesForYou from '../Home/ClassesForYou';
 import PopularTrainers from './PopularTrainers';
@@ -23,6 +23,7 @@ const SearchComponent = () => {
               setItems(request.data)
             })
         },[])
+
         useEffect(() => {
             axios({
                 url: URLClasses,
