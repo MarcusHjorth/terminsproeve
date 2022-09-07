@@ -11,7 +11,8 @@ const WelcomePage = () => {
                         src={TopImg} 
                         alt=""  
                         className="h-full object-cover"/>
-                        <h1 className="text-Yellow text-56 font-bold absolute bottom-[40px] left-[20px]">Belive In Yourself</h1>
+                        <h1 className="text-Yellow text-56 font-bold absolute bottom-[40px] left-[20px]">
+                            Belive Yourself</h1>
                     <div className="flex flex-row items-center absolute bottom-[10px] text-white">
                         <div className="bg-white w-[40px] h-[2px]"></div>
                         <p className="mx-[10px] text-20 font-bold">Train like a pro</p>

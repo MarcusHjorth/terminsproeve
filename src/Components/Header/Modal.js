@@ -17,7 +17,7 @@ const Modal = ({ setModalOn }) => {
                 <Link to="/Home" onClick={CloseModal}><li>Home</li></Link>
                 <Link to="/Search" onClick={CloseModal}><li>Search</li></Link>
                 <Link to="/MySchedule" onClick={CloseModal}><li>My schedule</li></Link>
-                <Link to="/LogIn" onClick={CloseModal}><li>LogIn</li></Link>
+                <Link to="/Login" onClick={CloseModal}><li>LogIn</li></Link>
             </ul>
         </nav>
      );
