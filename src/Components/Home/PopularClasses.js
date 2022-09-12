@@ -10,30 +10,29 @@ const PopularClasses= () => {
     const [ item, setItem ] = useState()
     const [ index, setIndex ] = useState(0)
     
-    let randomItem = Math.floor(Math.random() * 4 + 1)
-
+    
     useEffect(() => {
         axios({
-            url: URL + randomItem,
+            url: URL,
             method: "GET",
         }).then(request => { 
             setItem(request.data)
             setIndex(randomItem)
         })
-    }, [ randomItem  ])
+    }, [  ])
     
-    console.log(index);
+    let randomItem = item && Math.floor(Math.random() * item.length)
 
     return ( 
         item ?
         <section className="mt-[20px] mx-[20px] flex justify-center items-center flex-col">
-            <Link to={`/Classes/${randomItem}`} trainer={item.trainer.id}>
+            <Link to={`/Classes/${item[randomItem].id}`} trainer={item[randomItem].trainer.id}>
                 
                 <article className="">
                     <figure className="bg-OffWhite h-[24rem] rounded-[1.2em] relative overflow-hidden">
-                        <img src={item.asset.url} alt="" className="h-full object-cover"/>
+                        <img src={item[randomItem].asset.url} alt="" className="h-full object-cover"/>
                         <div className="bg-Yellow w-[250px] h-[80px] p-[20px] absolute rounded-tr-[3em] bottom-0 left-0">
-                            <p className="font-semibold">{item.className}</p>
+                            <p className="font-semibold">{item[randomItem].className}</p>
                             <ul className="flex flex-row">
                                 <li><AiFillStar/></li>
                                 <li><AiFillStar/></li>

@@ -33,7 +33,7 @@ const SearchComponent = () => {
               })
           },[])
         
-        console.log(items);
+        console.log( items && items);
 
         const handleFilter = (event) => {
             const search = event.target.value

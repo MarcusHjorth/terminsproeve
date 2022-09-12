@@ -4,18 +4,21 @@ const ContextState = createContext()
 
 const StateProvider = ({children}) => {
 
-    const [email, setEmail] = useState("email");
-    const [password, setPassword] = useState("password");
-    
+    const [email, setEmail] = useState("user1");
+    const [password, setPassword] = useState("1234");
+    const [ isLoggedIn, setIsLoggedIn ] = useState(false)
+
+
     //values
-    const value = useMemo(
-        () => ({
+    const value = useMemo(() => ({
             email,
             password,
-            
+            isLoggedIn,
+
             setEmail,
             setPassword,
-        })
+            setIsLoggedIn,
+        }), [email, password, isLoggedIn]
     );
 
     return (
