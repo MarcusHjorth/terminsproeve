@@ -24,7 +24,7 @@ const RatingModal = ({ setModalOn, workout}) => {
                 <button className="bg-Yellow mt-[10px] py-[1rem] font-semibold rounded-full w-[15rem]"
                     onClick={CloseModal}
                     >
-                    SIGN UP
+                    Save Rating
                 </button>
             </div>
         </article>

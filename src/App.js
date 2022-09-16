@@ -13,7 +13,7 @@ function App() {
     <Router>
       <div className="h-screen w-screen font-poppins">
         <Routes>
-          <Route path="/" element={<WelcomePage />} />
+          <Route path="*" element={<WelcomePage />} />
           <Route path="/Home" element={<HomePage/>} />
           <Route path="/Search" element={<SearchPage />} />
           <Route path="/MySchedule" element={<MySchedulePage />} />

@@ -9,7 +9,6 @@ const ClassesForYou = () => {
     const URL = "http://localhost:4000/api/v1/classes"
     const [ items, setItems ] = useState()
     
-  
       useEffect(() => {
           axios({
               url: URL,

@@ -7,6 +7,7 @@ const SearchPage = () => {
     return ( 
         <main className="w-screen h-screen">
             <Header backButton={<BackButton />} text="Search" />
+            
             <SearchComponent />
 
         </main>

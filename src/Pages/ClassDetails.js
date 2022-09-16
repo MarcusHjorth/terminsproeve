@@ -3,13 +3,11 @@ import { useParams } from "react-router-dom"
 import { AiFillStar } from 'react-icons/ai';
 import axios from "axios";
 
-import ReHeaderComponent from '../Components/ClassDetails/ReHeaderComponent';
-import ReBackButton from '../Components/ClassDetails/ReBackButton';
+import BackButton from '../Components/Header/BackButton';
 import SingleTrainer from '../Components/ClassDetails/SingleTrainer';
 import SignUpWorkout from '../Components/ClassDetails/SignUpWorkout';
 import RatingModal from '../Components/ClassDetails/RatingModal';
-
-
+import Header from '../Templates/Header';
 
 const ClassDetails = () => {    
     const URL = "http://localhost:4000/api/v1/classes/"
@@ -34,10 +32,11 @@ const ClassDetails = () => {
     return ( 
         item ?
         <main>
+            {modalOn && <RatingModal setModalOn={setModalOn} workout={item.className} />}
             <div className="h-screen">
                 <figure className="relative h-[55%]">
                     <div className="absolute top-0 w-full">
-                        <ReHeaderComponent reBackButton={<ReBackButton />} />
+                        <Header backButton={<BackButton />}/>
                     </div>
                     <img 
                         src={item.asset.url} 
@@ -66,11 +65,10 @@ const ClassDetails = () => {
                     </article>
 
                     <SingleTrainer trainer={item.trainer.id} />
-                    <SignUpWorkout />
+                    <SignUpWorkout id={id} />
                 </section>
 
             </div>
-            {modalOn && <RatingModal setModalOn={setModalOn} workout={item.className} />}
         </main> : <p>Loading</p>
      );
 }

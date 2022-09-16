@@ -15,7 +15,7 @@ const Header = (props) => {
             <nav className="h-[100px] flex flex-row items-center justify-between mx-[20px] py-[20px]">
                 <div className="flex flex-row items-center">
                     {props.backButton}
-                    <h1 className="text-36">{props.text}</h1>
+                    <h1 className="text-36 text-Black">{props.text}</h1>
                 </div>
 
                 <HiOutlineViewList className="text-36 text-DarkGray" 
