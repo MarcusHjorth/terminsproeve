@@ -2,22 +2,20 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { BsSearch } from 'react-icons/bs';
 import { Link } from "react-router-dom"
-/* import { AiFillStar } from 'react-icons/ai'; */
+import { AiFillStar } from 'react-icons/ai';
 
 import ClassesForYou from '../Home/ClassesForYou';
 import PopularTrainers from './PopularTrainers';
 
 const SearchComponent = () => {
-    const URL = "http://localhost:4000/api/v1/trainers"
-    const URLClasses = "http://localhost:4000/api/v1/classes"
+    const URL = "http://localhost:4000/api/v1/"
 
     const [ items, setItems ] = useState()
-    const [ setSearchTerm ] = useState()
     const [ filteredData, setFilteredData ] = useState([])
 
       useEffect(() => {
           axios({
-              url: URL,
+              url: URL + "trainers",
               method: "GET",
           }).then(request => { 
               setItems(request.data)
@@ -26,24 +24,25 @@ const SearchComponent = () => {
 
         useEffect(() => {
             axios({
-                url: URLClasses,
+                url: URL + "classes",
                 method: "GET",
             }).then(request => { 
                 setItems(request.data)
               })
           },[])
         
-        console.log( items && items);
+        /* console.log( items && items); */
 
         const handleFilter = (event) => {
             const search = event.target.value
-            const newFilter = items.filter((value) => {
-                return value.trainerName.toLowerCase().includes(search.toLowerCase())
-            })
+            const newFilter = items.filter((value) => 
+                    value.trainerName.toLocaleLowerCase().includes(search.toLocaleLowerCase()) /* ||
+                    value.className.includes(search) */
+            )
             setFilteredData(newFilter)
         }
 
-    /*     const search = (value) => array.filter(obj => Object.values(obj).some(val => (new RegExp(value, "i")).test(val)))
+    /*  const search = (value) => array.filter(obj => Object.values(obj).some(val => (new RegExp(value, "i")).test(val)))
         
     
         document.querySelector("#form").addEventListener("submit", (e) => {
